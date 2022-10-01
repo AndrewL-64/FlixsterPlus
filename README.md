@@ -22,7 +22,7 @@ The following **optional** features are implemented:
 - [X] Implement Glide to display placeholder graphics during loading
   - Note: this feature is difficult to capture in a GIF without throttling internet speeds.  Instead, include an additional screencap of your Glide code implementing the feature.  (<10 lines of code)
   
-  <img src='https://i.imgur.com/nnrNHW8.png' title='Glide Placeholder Snippet' width='' alt='Glide Placeholder Snippet' />
+  <img src='https://i.imgur.com/nnrNHW8.png' title='Glide Placeholder Snippet' width='500dp' alt='Glide Placeholder Snippet' />
 
 
 The following **additional** features are implemented:
