@@ -6,15 +6,25 @@ import kotlinx.serialization.Serializable
 
 @Keep
 @Serializable
-data class MovieDetails(
+data class MovieDetails (
     @SerializedName("title")
     var title: String? = null,
-    @SerializedName("description")
-    var description: String? = null,
-    @SerializedName("rating")
-    var rating: String? = null,
-    @SerializedName("tagline")
-    var tagline:String? = null,
+
+    @SerializedName("overview")
+    var overview: String? = null,
+
+    @SerializedName("poster_path")
+    var movie_image: String? = null,
+
+    @SerializedName("movie_id")
+    var movie_id: Int? = null,
+
+    @SerializedName("vote_average")
+    var vote_average: Float? = null,
+
     @SerializedName("vote_count")
-    var voteCount:String? = null
-) : java.io.Serializable
+    var vote_count: Int? = null,
+
+    @SerializedName("release_date")
+    var release_date: String? = null
+) : java.io.Serializable {}

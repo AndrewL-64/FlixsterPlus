@@ -1,11 +1,11 @@
 package com.example.flixster
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.GridLayout
 import android.widget.Toast
 import androidx.core.widget.ContentLoadingProgressBar
 import androidx.fragment.app.Fragment
@@ -17,13 +17,12 @@ import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import okhttp3.Headers
-import org.json.JSONArray
-import org.json.JSONObject
 import org.json.JSONTokener
 
 private const val API_KEY = "a07e22bc18f5cb106bfe4cc1f83ad8ed"
 
 class LatestMovieFragment : Fragment(), OnListFragmentInteractionListener {
+
     //Making the view
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -43,7 +42,7 @@ class LatestMovieFragment : Fragment(), OnListFragmentInteractionListener {
 
         // Create and setup an AsyncHTTPClient() here
         val client = AsyncHttpClient()
-        var params = RequestParams()
+        val params = RequestParams()
         params["api_key"] = API_KEY
 
         //Perform a HTTP request
@@ -67,7 +66,7 @@ class LatestMovieFragment : Fragment(), OnListFragmentInteractionListener {
                     val arrayMovieType = object : TypeToken<List<LatestMovie>>() {}.type
                     val models : List<LatestMovie> = gson.fromJson(moviesJSON, arrayMovieType)
 
-                    recyclerView.adapter = LatestMovieRecyclerViewAdapter(models, this@LatestMovieFragment)
+                    recyclerView.adapter = LatestMovieRecyclerViewAdapter(context, models, this@LatestMovieFragment)
                     Log.d("LatestMovieFragment", "response successful")
                 }
                 override fun onFailure(
@@ -86,7 +85,7 @@ class LatestMovieFragment : Fragment(), OnListFragmentInteractionListener {
             }
         ]
     }
+
     override fun onItemClick(item: LatestMovie) {
-        Toast.makeText(context, "test: " + item.title, Toast.LENGTH_LONG).show()
     }
 }

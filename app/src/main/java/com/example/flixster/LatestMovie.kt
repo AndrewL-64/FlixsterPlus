@@ -12,4 +12,7 @@ class LatestMovie {
 
     @SerializedName("poster_path")
     var movie_image: String? = null
+
+    @SerializedName("id")
+    var id: Int? = null
 }
